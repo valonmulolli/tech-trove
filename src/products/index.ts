@@ -1,7 +1,7 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: 'Gpu',
-    value: 'Gpu' as const,
+    label: 'gpu',
+    value: 'gpu' as const,
     featured: [
       {
         name: 'Editor picks',
