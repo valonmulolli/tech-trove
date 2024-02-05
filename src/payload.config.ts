@@ -5,12 +5,14 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import path from "path";
 import { Users } from "./collections/Users";
 import dotenv from 'dotenv'
+import { Products } from "./collections/Products/products";
+import { Media } from "./collections/Media";
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') })
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
-  collections: [Users],
+  collections: [Users, Products, Media],
   routes: {
     admin: '/sell'
   },
@@ -18,7 +20,7 @@ export default buildConfig({
     user: "users",
     bundler: webpackBundler(),
     meta: {
-      titleSuffix : 'Tech Trove',
+      titleSuffix: 'Tech Trove',
       favicon: '/favicon.ico',
       ogImage: '/thumbnail.jpg',
     }
@@ -31,6 +33,6 @@ export default buildConfig({
     url: process.env.MONGODB_URL!
   }),
   typescript: {
-    outputFile: path.resolve(__dirname,'payload-types.ts'),
+    outputFile: path.resolve(__dirname, 'payload-types.ts'),
   }
 })
