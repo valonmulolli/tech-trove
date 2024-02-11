@@ -39,11 +39,11 @@ export const Media: CollectionConfig = {
 
   },
   admin: {
-    hidden: ({ user }) => user?.role !== "admin",
+    hidden: ({ user }) => user.role !== "admin",
   },
   upload: {
     staticURL: "/media",
-    staticDir: "/public/media",
+    staticDir: "media",
     imageSizes: [
       {
         name: "thumbnail",
