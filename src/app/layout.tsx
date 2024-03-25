@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import { Toaster } from 'sonner';
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -21,7 +21,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={cn('relative h-full font-sans antialiased', inter.className)}
+				className={cn('relative h-full font-sans antialiased', outfit.className)}
 			>
 				<main className='relative flex flex-col min-h-screen'>
 					<Providers>

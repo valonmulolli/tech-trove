@@ -61,7 +61,6 @@ const Page = () => {
 		onError: (err) => {
 			if (err.data?.code === 'UNAUTHORIZED') {
 				toast.error('Inavlid email or password');
-				return;
 			}
 		},
 	});
