@@ -1,8 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
+import { Product } from '@/payload-types';
+import { useCart } from '@/hooks/use-cart';
 
-const AddToCartButton = () => {
+const AddToCartButton = ({ product }: { product: Product }) => {
+	const { addItem } = useCart();
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -14,7 +17,14 @@ const AddToCartButton = () => {
 	}, [isSuccess]);
 
 	return (
-		<Button onClick={() => setIsSuccess(true)} size='lg'>
+		<Button
+			onClick={() => {
+				addItem(product);
+				setIsSuccess(true);
+			}}
+			className='w-full'
+			size='lg'
+		>
 			{isSuccess ? 'added' : 'add to cart'}
 		</Button>
 	);
